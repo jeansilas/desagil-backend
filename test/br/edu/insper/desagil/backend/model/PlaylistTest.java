@@ -14,21 +14,39 @@ class PlaylistTest {
 
 	@Test
 	void testRoundDownToZero() {
-		assertEquals(true, false);
+		Playlist play = new Playlist(1);
+		play.putRating("Jean", 1);
+		play.putRating("Joyce", 2);
+		play.putRating("Cintia", 3);
+		play.putRating("Raquel", 3);
+		assertEquals(play.averageRatings(), 2.0,DELTA);
 	}
 
 	@Test
 	void testRoundUpToHalf() {
-		assertEquals(true, false);
+		Playlist play = new Playlist(1);
+		play.putRating("Jean", 1);
+		play.putRating("Joyce", 2);
+		play.putRating("Cintia", 1);
+		assertEquals(play.averageRatings(), 1.5,DELTA);
 	}
 
 	@Test
 	void testRoundDownToHalf() {
-		assertEquals(true, false);
+		Playlist play = new Playlist(1);
+		play.putRating("Jean", 1);
+		play.putRating("Joyce", 2);
+		play.putRating("Cintia", 2);
+		assertEquals(play.averageRatings(), 2.5,DELTA);
 	}
 
 	@Test
 	void testRoundUpToOne() {
-		assertEquals(true, false);
+		Playlist play = new Playlist(1);
+		play.putRating("Jean", 1);
+		play.putRating("Joyce", 2);
+		play.putRating("Cintia", 2);
+		play.putRating("Raquel", 3);
+		assertEquals(play.averageRatings(), 2.0,DELTA);
 	}
 }
